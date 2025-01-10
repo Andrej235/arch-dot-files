@@ -1,0 +1,67 @@
+$color: transparentize(#aaaaaa, 0.15);
+
+* {
+  background-color: transparent;
+}
+
+.clock {
+  font-size: 24px;
+  font-family: JetBrainsMono;
+  font-weight: 100;
+
+  background-color: $color;
+}
+
+.triangle {
+  $size: 10px;
+  $peak-multiplier: 1.2;
+  $side-multiplier: 2;
+
+  &.right {
+    border-style: solid;
+    border-width: $size * $side-multiplier 0 $size * $side-multiplier $size *
+      $peak-multiplier;
+    border-color: transparent transparent transparent $color;
+
+    &.inverted {
+      border-color: $color transparent $color transparent;
+      margin-left: -75px;
+      margin-right: 160;
+    }
+
+    &.trailing {
+      margin-left: -190px;
+      margin-right: 190px;
+    }
+  }
+
+  &.left {
+    border-style: solid;
+    border-width: $size * $side-multiplier $size * $peak-multiplier $size *
+      $side-multiplier 0;
+    border-color: transparent $color transparent transparent;
+
+    &.inverted {
+      border-color: $color transparent $color transparent;
+      margin-right: -75px;
+      margin-left: 160;
+    }
+
+    &.leading {
+      margin-left: 190px;
+      margin-right: -190px;
+    }
+  }
+}
+
+.date {
+  background-color: $color;
+  margin-right: -160px;
+  margin-left: 190px;
+}
+
+.day {
+  background-color: $color;
+  margin-left: -160px;
+  margin-right: 190px;
+}

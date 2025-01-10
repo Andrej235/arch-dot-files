@@ -1,0 +1,61 @@
+(defpoll time :interval "20s"
+`date +'{"hour":"%H","min":"%M","date":"%d","month":"%m","day":"%a"}'`)
+
+(defwindow top-bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+    :y "5px"
+  :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (box
+    (triangle :facing "left leading")
+    (date)
+    (inverted-triangle :facing "left")
+    (triangle :facing "left")
+    (clock)
+    (triangle :facing "right")
+    (inverted-triangle :facing "right")
+    (day)
+    (triangle :facing "right trailing")
+  ))
+
+(defwidget clock []
+  (box :orientation "horizontal"
+    :width 100
+    :halign "justify"
+    :class "clock"
+    (label :text "${time.hour}:${time.min}"))
+)
+
+(
+  defwidget triangle [facing]
+  (box :orientation "horizontal"
+    :width 0
+    :height 0
+  :class "triangle ${facing}")
+)
+
+(
+  defwidget inverted-triangle [facing]
+  (box :orientation "horizontal"
+    :width 0
+    :height 0
+  :class "triangle ${facing} inverted")
+)
+
+(
+  defwidget date []
+  (box :orientation "horizontal"
+    :class "date"
+    (label :text "${time.date}.${time.month}"))
+)
+
+(
+  defwidget day []
+  (box :orientation "horizontal"
+    :class "day"
+    (label :text "${time.day}"))
+)
