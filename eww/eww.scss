@@ -4,18 +4,19 @@ $color: transparentize(#aaaaaa, 0.15);
   background-color: transparent;
 }
 
-.clock {
-  font-size: 24px;
-  font-family: JetBrainsMono;
-  font-weight: 100;
+.arch {
+  font-size: 22px;
+  font-family: "3270 Nerd Font Propo";
 
   background-color: $color;
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 .triangle {
-  $size: 10px;
-  $peak-multiplier: 1.2;
-  $side-multiplier: 2;
+  $size: 3px;
+  $peak-multiplier: 3;
+  $side-multiplier: 5;
 
   &.right {
     border-style: solid;
@@ -23,15 +24,18 @@ $color: transparentize(#aaaaaa, 0.15);
       $peak-multiplier;
     border-color: transparent transparent transparent $color;
 
+    margin-left: -25px;
+    margin-right: 25px;
+
     &.inverted {
       border-color: $color transparent $color transparent;
-      margin-left: -75px;
-      margin-right: 160;
+      margin-left: -100px;
+      margin-right: 185px;
     }
 
     &.trailing {
-      margin-left: -190px;
-      margin-right: 190px;
+      margin-left: -215px;
+      margin-right: 215px;
     }
   }
 
@@ -41,27 +45,36 @@ $color: transparentize(#aaaaaa, 0.15);
       $side-multiplier 0;
     border-color: transparent $color transparent transparent;
 
+    margin-left: 25px;
+    margin-right: -25px;
+
     &.inverted {
       border-color: $color transparent $color transparent;
-      margin-right: -75px;
-      margin-left: 160;
+      margin-right: -100px;
+      margin-left: 185px;
     }
 
     &.leading {
-      margin-left: 190px;
-      margin-right: -190px;
+      margin-left: 215px;
+      margin-right: -215px;
     }
   }
 }
 
-.date {
-  background-color: $color;
-  margin-right: -160px;
-  margin-left: 190px;
+.clock, .date{
+  font-size: 16px;
+  font-family: JetBrains Mono;
+  font-weight: 100;
 }
 
-.day {
+.clock {
   background-color: $color;
-  margin-left: -160px;
-  margin-right: 190px;
+  margin-right: -185px;
+  margin-left: 215px;
+}
+
+.date {
+  background-color: $color;
+  margin-left: -185px;
+  margin-right: 215px;
 }

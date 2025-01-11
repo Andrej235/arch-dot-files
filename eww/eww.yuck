@@ -1,5 +1,5 @@
 (defpoll time :interval "20s"
-`date +'{"hour":"%H","min":"%M","date":"%d","month":"%m","day":"%a"}'`)
+`date +'{"hour":"%H","min":"%M","date":"%d","month":"%m"}'`)
 
 (defwindow top-bar
   :monitor 0
@@ -10,24 +10,24 @@
   :reserve (struts :distance "40px" :side "top")
   :windowtype "dock"
   :wm-ignore false
+  ; :exclusive true
+
   (box
     (triangle :facing "left leading")
-    (date)
+    (clock)
     (inverted-triangle :facing "left")
     (triangle :facing "left")
-    (clock)
+    (arch)
     (triangle :facing "right")
     (inverted-triangle :facing "right")
-    (day)
+    (date)
     (triangle :facing "right trailing")
   ))
 
-(defwidget clock []
+(defwidget arch []
   (box :orientation "horizontal"
-    :width 100
-    :halign "justify"
-    :class "clock"
-    (label :text "${time.hour}:${time.min}"))
+    :class "arch"
+    (label :text "󰣇"))
 )
 
 (
@@ -47,15 +47,15 @@
 )
 
 (
+  defwidget clock []
+  (box :orientation "horizontal"
+    :class "clock"
+    (label :text "${time.hour}:${time.min}"))
+)
+
+(
   defwidget date []
   (box :orientation "horizontal"
     :class "date"
     (label :text "${time.date}.${time.month}"))
-)
-
-(
-  defwidget day []
-  (box :orientation "horizontal"
-    :class "day"
-    (label :text "${time.day}"))
 )
