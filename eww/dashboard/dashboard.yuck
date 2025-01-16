@@ -1,0 +1,94 @@
+(defwidget chart [label icon-class value max_value]
+  (box :class "chart-container"
+    :orientation "v"
+    :space-evenly false
+    (box :class "header"
+      :space-evenly true
+      :orientation "v"
+      (label :text "${label}" :class "label" :halign "start")
+    )
+    (box :class "body"
+      :space-evenly true
+      :orientation "h"
+      (box :class "container"
+        :space-evenly true
+        :halign "center"
+        :hexpand true
+        :orientation "h"
+        (box :class "chart-container" :space-evenly false
+          (overlay
+            (circular-progress :value "${value / max_value * 100}"
+              :thickness 50
+              :class "chart"
+              :start-at 75
+              (label :text "L")
+            )
+            (label :text "${value}" :class "chart-icon ${icon-class}")
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget charts []
+  (box :class "chartsbox"
+    :orientation "v"
+    :space-evenly false
+    :spacing 25
+    (box :class "row"
+      :orientation "h"
+      :space-evenly true
+      :spacing 25
+      (chart :label "CPU usage" :icon-class "cpu-usage" :value cpu_usage :max_value 100)
+      (chart :label "CPU temperature" :icon-class "cpu-temp" :value cpu_temp :max_value 100)
+    )
+    (box :class "row"
+      :orientation "h"
+      :space-evenly true
+      :spacing 25
+      (chart :label "GPU usage" :icon-class "gpu-usage" :value gpu_usage :max_value 100)
+      (chart :label "GPU temperature" :icon-class "gpu-temp" :value gpu_temp :max_value 150)
+    )
+    (box :class "row"
+      :orientation "h"
+      :space-evenly true
+      :spacing 25
+      (chart :label "Ram usage" :icon-class "used-ram" :value used_ram :max_value total_ram)
+      (chart :label "VRam usage" :icon-class "used-vram" :value gpu_used_vram :max_value gpu_total_vram)
+    )
+  )
+)
+
+(defwidget content []
+  (box :class "content-container"
+    :orientation "v"
+    :space-evenly false
+    (box :class "content-box"
+      :orientation "v"
+      :space-evenly false
+      :spacing 25
+      (charts)
+    )
+  )
+)
+
+(defwidget dashboard []
+  (box :class "dashboard-box"
+    :orientation "v"
+    :space-evenly false
+    (content)
+  )
+)
+
+(defwindow dashboard
+  :monitor 0
+  :geometry (
+    geometry
+    :x "0"
+    :y "0"
+    :anchor "center right"
+  )
+  :type "dock"
+  :wm-ignore true
+  (dashboard))

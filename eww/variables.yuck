@@ -1,0 +1,8 @@
+(defvar gpu_usage "0")
+(defvar gpu_temp "0")
+(defvar gpu_used_vram "0")
+(defvar gpu_total_vram "1")
+(defvar cpu_usage "0")
+(defvar cpu_temp "0")
+(defvar used_ram "0")
+(defvar total_ram "1")
