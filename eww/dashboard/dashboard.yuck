@@ -40,22 +40,22 @@
       :orientation "h"
       :space-evenly true
       :spacing 25
-      (chart :label "CPU usage" :icon-class "cpu-usage" :value cpu_usage :max_value 100)
-      (chart :label "CPU temperature" :icon-class "cpu-temp" :value cpu_temp :max_value 100)
+      (chart :label "CPU usage" :icon-class "cpu-usage" :value "${cpu.usage}" :max_value 100)
+      (chart :label "CPU temperature" :icon-class "cpu-temp" :value "${cpu.temp}" :max_value 100)
     )
     (box :class "row"
       :orientation "h"
       :space-evenly true
       :spacing 25
-      (chart :label "GPU usage" :icon-class "gpu-usage" :value gpu_usage :max_value 100)
-      (chart :label "GPU temperature" :icon-class "gpu-temp" :value gpu_temp :max_value 150)
+      (chart :label "GPU usage" :icon-class "gpu-usage" :value "${gpu.usage}" :max_value 100)
+      (chart :label "GPU temperature" :icon-class "gpu-temp" :value "${gpu.temp}" :max_value 150)
     )
     (box :class "row"
       :orientation "h"
       :space-evenly true
       :spacing 25
-      (chart :label "Ram usage" :icon-class "used-ram" :value used_ram :max_value total_ram)
-      (chart :label "VRam usage" :icon-class "used-vram" :value gpu_used_vram :max_value gpu_total_vram)
+      (chart :label "Ram usage" :icon-class "used-ram" :value "${ram.used}" :max_value "${ram.total}")
+      (chart :label "VRam usage" :icon-class "used-vram" :value "${gpu.used_vram}" :max_value "${gpu.total_vram}")
     )
   )
 )

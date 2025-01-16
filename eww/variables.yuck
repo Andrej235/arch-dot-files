@@ -1,8 +1,20 @@
-(defvar gpu_usage "0")
-(defvar gpu_temp "0")
-(defvar gpu_used_vram "0")
-(defvar gpu_total_vram "1")
-(defvar cpu_usage "0")
-(defvar cpu_temp "0")
-(defvar used_ram "0")
-(defvar total_ram "1")
+(
+  defpoll cpu
+  :interval "2s"
+  :initial '{"usage": 0, "temp": 0}'
+  `./../scripts/cpu.sh`
+)
+
+(
+  defpoll gpu
+  :interval "2s"
+  :initial '{"usage": 0, "temp": 0, "used_vram": 0, "total_vram": 1}'
+  `./../scripts/gpu.sh`
+)
+
+(
+  defpoll ram
+  :interval "2s"
+  :initial '{"used": 0, "total": 1}'
+  `./../scripts/ram.sh`
+)
