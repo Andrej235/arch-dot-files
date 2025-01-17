@@ -1,23 +1,31 @@
-(defwidget chart [label icon-class value max_value]
-  (box :class "chart-container"
+(
+  defwidget chart [label icon-class value max_value]
+  (
+    box
+    :class "chart-container"
     :orientation "v"
     :space-evenly false
-    (box :class "header"
-      :space-evenly true
-      :orientation "v"
-      (label :text "${label}" :class "label" :halign "start")
-    )
-    (box :class "body"
+    (
+      box
+      :class "body"
       :space-evenly true
       :orientation "h"
-      (box :class "container"
+      (
+        box
+        :class "container"
         :space-evenly true
         :halign "center"
         :hexpand true
         :orientation "h"
-        (box :class "chart-container" :space-evenly false
-          (overlay
-            (circular-progress :value "${value / max_value * 100}"
+        (
+          box
+          :class "chart-container"
+          :space-evenly false
+          (
+            overlay
+            (
+              circular-progress
+              :value "${value / max_value * 100}"
               :thickness 50
               :class "chart"
               :start-at 75
@@ -31,26 +39,35 @@
   )
 )
 
-(defwidget charts []
-  (box :class "chartsbox"
+(
+  defwidget charts []
+  (
+    box
+    :class "charts-container"
     :orientation "v"
     :space-evenly false
     :spacing 25
-    (box :class "row"
+    (
+      box
+      :class "row"
       :orientation "h"
       :space-evenly true
       :spacing 25
       (chart :label "CPU usage" :icon-class "cpu-usage" :value "${cpu.usage}" :max_value 100)
       (chart :label "CPU temperature" :icon-class "cpu-temp" :value "${cpu.temp}" :max_value 100)
     )
-    (box :class "row"
+    (
+      box
+      :class "row"
       :orientation "h"
       :space-evenly true
       :spacing 25
       (chart :label "GPU usage" :icon-class "gpu-usage" :value "${gpu.usage}" :max_value 100)
       (chart :label "GPU temperature" :icon-class "gpu-temp" :value "${gpu.temp}" :max_value 150)
     )
-    (box :class "row"
+    (
+      box
+      :class "row"
       :orientation "h"
       :space-evenly true
       :spacing 25
@@ -60,35 +77,30 @@
   )
 )
 
-(defwidget content []
-  (box :class "content-container"
-    :orientation "v"
-    :space-evenly false
-    (box :class "content-box"
-      :orientation "v"
-      :space-evenly false
-      :spacing 25
+(
+  defwidget dashboard []
+  (
+    revealer
+    :reveal is_dashboard_active
+    :transition "slideleft"
+    :duration "500ms"
+    (
+      box
+      :class "dashboard-container"
       (charts)
     )
   )
 )
 
-(defwidget dashboard []
-  (box :class "dashboard-box"
-    :orientation "v"
+(
+  defwindow dashboard
+  :monitor 0
+  :hexpand false
+  :vexpand false
+  :geometry (geometry :anchor "center right" :x 0 :y 0 :width "300px" :height "30px")
+  (box
     :space-evenly false
-    (content)
+    :halign "end"
+    (dashboard)
   )
 )
-
-(defwindow dashboard
-  :monitor 0
-  :geometry (
-    geometry
-    :x "0"
-    :y "0"
-    :anchor "center right"
-  )
-  :type "dock"
-  :wm-ignore true
-  (dashboard))

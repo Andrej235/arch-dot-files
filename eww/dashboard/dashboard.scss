@@ -1,49 +1,44 @@
 @use "../colors.scss" as *;
 
-.dashboard-box {
+.dashboard-container {
   background-color: $black;
   color: $fg;
   border-radius: 10px;
-}
+  padding: 20px;
 
-.content-container {
-  .content-box {
-    padding: 20px;
+  .chart-container {
+    background-color: $black;
+    border-radius: 12px;
 
-    .chart-container {
-      background-color: $black;
-      border-radius: 12px;
+    .header {
+      padding: 5px 10px;
+      font-family: Product Sans;
+      font-size: 14px;
+      color: $lightblack;
+    }
 
-      .header {
-        padding: 5px 10px;
-        font-family: Product Sans;
-        font-size: 14px;
-        color: $lightblack;
-      }
+    .body .container {
+      padding: 10px;
 
-      .body .container {
-        padding: 10px;
+      .chart-container {
+        background-color: $lightblack;
+        border-radius: 3em;
 
-        .chart-container {
-          background-color: $lightblack;
+        .chart {
+          color: $blue;
+
+          label {
+            padding: 1em;
+            font-size: 23px;
+          }
+        }
+
+        .chart-icon {
+          background-color: $black;
           border-radius: 3em;
-
-          .chart {
-            color: $blue;
-
-            label {
-              padding: 1em;
-              font-size: 23px;
-            }
-          }
-
-          .chart-icon {
-            background-color: $black;
-            border-radius: 3em;
-            padding: 12px 5px;
-            margin: 0.5em;
-            font-family: Iosevka Nerd Font;
-          }
+          padding: 12px 5px;
+          margin: 0.5em;
+          font-family: Iosevka Nerd Font;
         }
       }
     }
