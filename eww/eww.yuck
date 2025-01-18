@@ -1,3 +1,4 @@
-(include "./top-bar/top-bar.yuck")
-(include "./dashboard/dashboard.yuck")
 (include "./variables.yuck")
+(include "./top-bar/top-bar.yuck")
+(include "./overlay/overlay.yuck")
+(include "./dashboard/dashboard.yuck")
