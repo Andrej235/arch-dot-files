@@ -1,0 +1,25 @@
+@use "../colors.scss" as *;
+
+.music-player {
+  .music-player-pause-button {
+    .music-player-art {
+      $height: 100px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: $height;
+      min-width: $height / 9 * 16;
+      border-radius: 10px;
+
+      * {
+        color: transparent;
+        transition: 0.2s ease-out;
+        font-size: 50px;
+      }
+    }
+
+    &:hover .music-player-art label {
+      color: $fg;
+    }
+  }
+}

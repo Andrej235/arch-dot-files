@@ -1,0 +1,32 @@
+(
+  defwindow test
+  :monitor 0
+  :geometry (geometry :anchor "center right" :x 0 :y 0 :width "100%" :height "100%")
+  :stacking "fg"
+  (music_player)
+)
+
+(
+  defwidget music_player []
+  (
+    box
+    :class "music-player"
+    :halign "center"
+    :valign "end"
+    (
+      eventbox
+      :class "music-player-pause-button"
+      :onclick "${scripts}/music/song-controller.sh play-pause"
+      (
+        box
+        :class "music-player-art"
+        :style "background-image: url('${song.artUrl}');"
+        (
+          label
+          :text "${song.playerStatus == 'Playing' ? '' : ''}"
+          :class "music-player-play-pause"
+        )
+      )
+    )
+  )
+)
