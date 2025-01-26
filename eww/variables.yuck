@@ -1,5 +1,5 @@
 (defvar is_dashboard_active true)
-(defvar scripts "~/code/dot-files/scripts")
+(defvar scripts "~/code/arch-dot-files/scripts")
 
 (
   defpoll cpu
