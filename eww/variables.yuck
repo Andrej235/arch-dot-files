@@ -32,3 +32,11 @@
   :run-while is_dashboard_active
   `./../scripts/music/get-song-data.sh`
 )
+
+(
+  defpoll battery
+  :interval "30s"
+  :initial '{"percentage": 0, "status": ""}'
+  :run-while is_dashboard_active
+  `./../scripts/battery.sh`
+)

@@ -72,7 +72,7 @@
       :space-evenly true
       :spacing 25
       (chart :label "Ram usage" :icon-class "used-ram" :value "${ram.used}" :max_value "${ram.total}")
-      (chart :label "VRam usage" :icon-class "used-vram" :value "${gpu.used_vram}" :max_value "${gpu.total_vram}")
+      (chart :label "Battery" :icon-class "battery" :value "${battery.percentage}" :max_value 100)
     )
   )
 )
