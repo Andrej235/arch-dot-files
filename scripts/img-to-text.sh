@@ -1,0 +1,4 @@
+file="/tmp/ocr-$(date +%s).png"
+hyprshot -s -m region -o /tmp -f "$(basename "$file")"
+tesseract "$file" stdout | wl-copy
+rm "$file"
