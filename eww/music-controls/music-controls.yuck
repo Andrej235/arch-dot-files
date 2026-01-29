@@ -6,27 +6,27 @@
   (music_player)
 )
 
-(
-  defwidget music_player []
-  (
-    box
-    :class "music-player"
-    :halign "center"
-    :valign "end"
-    (
-      eventbox
-      :class "music-player-pause-button"
-      :onclick "${scripts}/music/song-controller.sh play-pause"
-      (
-        box
-        :class "music-player-art"
-        :style "background-image: url('${song.artUrl}');"
-        (
-          label
-          :text "${song.playerStatus == 'Playing' ? '' : ''}"
-          :class "music-player-play-pause"
-        )
-      )
-    )
-  )
-)
+; (
+;   defwidget music_player []
+;   (
+;     box
+;     :class "music-player"
+;     :halign "center"
+;     :valign "end"
+;     (
+;       eventbox
+;       :class "music-player-pause-button"
+;       :onclick "${scripts}/music/song-controller.sh play-pause"
+;       (
+;         box
+;         :class "music-player-art"
+;         :style "background-image: url('${song.artUrl}');"
+;         (
+;           label
+;           :text "${song.playerStatus == 'Playing' ? '' : ''}"
+;           :class "music-player-play-pause"
+;         )
+;       )
+;     )
+;   )
+; )

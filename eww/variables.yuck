@@ -25,13 +25,13 @@
   `./../scripts/ram.sh`
 )
 
-(
-  defpoll song
-  :interval "1s"
-  :initial '{"title": "", "artist": "", "currentPosition": 0, "totalDuration": 1, "playerStatus": "", "artUrl": ""}'
-  :run-while is_dashboard_active
-  `./../scripts/music/get-song-data.sh`
-)
+; (
+;   defpoll song
+;   :interval "1s"
+;   :initial '{"title": "", "artist": "", "currentPosition": 0, "totalDuration": 1, "playerStatus": "", "artUrl": ""}'
+;   :run-while is_dashboard_active
+;   `./../scripts/music/get-song-data.sh`
+; )
 
 (
   defpoll battery

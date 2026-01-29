@@ -28,6 +28,6 @@
       :valign "center"
       (dashboard)
     )
-    (music_player)
+    ; (music_player)
   )
 )
