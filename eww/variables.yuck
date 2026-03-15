@@ -36,7 +36,7 @@
 (
   defpoll battery
   :interval "30s"
-  :initial '{"percentage": 0, "status": ""}'
+  :initial '{"percentage": 0, "time": "0s"}'
   :run-while is_dashboard_active
   `./../scripts/battery.sh`
 )

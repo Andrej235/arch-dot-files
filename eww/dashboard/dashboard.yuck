@@ -53,8 +53,8 @@
       :orientation "h"
       :space-evenly true
       :spacing 25
-      (chart :label "CPU usage" :icon-class "cpu-usage" :value "0" :max_value 100)
-      (chart :label "CPU temperature" :icon-class "cpu-temp" :value "0" :max_value 100)
+      (chart :label "CPU usage" :icon-class "cpu-usage" :value "${cpu.usage}" :max_value 100)
+      (chart :label "CPU temperature" :icon-class "cpu-temp" :value "${cpu.temp}" :max_value 100)
     )
     (
       box
@@ -63,7 +63,7 @@
       :space-evenly true
       :spacing 25
       (chart :label "GPU usage" :icon-class "gpu-usage" :value "0" :max_value 100)
-      (chart :label "GPU temperature" :icon-class "gpu-temp" :value "0" :max_value 150)
+      (chart :label "Ram usage" :icon-class "used-ram" :value "${ram.used}" :max_value "${ram.total}")
     )
     (
       box
@@ -71,7 +71,7 @@
       :orientation "h"
       :space-evenly true
       :spacing 25
-      (chart :label "Ram usage" :icon-class "used-ram" :value "${ram.used}" :max_value "${ram.total}")
+      (chart :label "Battery time to empty" :icon-class "battery" :value "${battery.time}" :max_value 0)
       (chart :label "Battery" :icon-class "battery" :value "${battery.percentage}" :max_value 100)
     )
   )
